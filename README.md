@@ -1,44 +1,29 @@
 # my5G-RANTester-Scripts
 
-Scripts to run my5G-RANTester
+Scripts to run my5G-RANTester (changes made to replicate results for free5gc only. includes changes to several versions of outdated dependencies.)
 
 ## How to run
 
 1. On Ubuntu Server **20.04 LTS**, install Linux Kernel **v5.4.90** following [this tutorial](https://www.how2shout.com/linux/how-to-change-default-kernel-in-ubuntu-22-04-20-04-lts/).
 
-2. Install `curl`:
-
-   ```bash
-   sudo apt update
-   ```
-
-   ```bash
-   sudo apt -y install curl
-   ```
-
-3. Choose the 5G core you want:
-
-   - free5GC:
+2. Run Experiments with free5GC v3.0.6 or v3.2.1
 
      ```bash
      sudo -s
      ```
 
      ```bash
-     bash <(curl -s https://raw.githubusercontent.com/PORVIR-5G-Project/my5G-RANTester-Scripts/main/run.sh) -c 2
+     ./run.sh -c 1
+     ./run.sh -c 2
      ```
 
-   - Open5GS:
+3. Run Specific Experiments for Paper Replication
+   ```bash
+   ./run_exp1.sh # Don't forget to ./stop_and_clear.sh before running new experiment
+   ./run_exp2.sh # Don't forget to ./stop_and_clear.sh before running new experiment
+   ```
 
-     ```bash
-     sudo -s
-     ```
-
-     ```bash
-     bash <(curl -s https://raw.githubusercontent.com/PORVIR-5G-Project/my5G-RANTester-Scripts/main/run.sh) -c 3
-     ```
-
-## How to capture analytics logs and export to .csv file
+## Capture analytics logs and export to .csv file
 
 1. Run the `capture_and_parse_logs.sh` script:
 
@@ -47,7 +32,7 @@ Scripts to run my5G-RANTester
    ```
 
    ```bash
-   bash <(curl -s https://raw.githubusercontent.com/PORVIR-5G-Project/my5G-RANTester-Scripts/main/capture_and_parse_logs.sh) my5grantester_logs.csv
+   ./capture_and_parse_logs.sh my5grantester_logs.csv
    ```
 
 ## How to stop containers and clear data
@@ -59,5 +44,5 @@ Scripts to run my5G-RANTester
    ```
 
    ```bash
-   bash <(curl -s https://raw.githubusercontent.com/PORVIR-5G-Project/my5G-RANTester-Scripts/main/stop_and_clear.sh)
+   ./stop_and_clear.sh
    ```
