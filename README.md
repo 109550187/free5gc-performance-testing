@@ -46,3 +46,7 @@ Scripts to run my5G-RANTester (changes made to replicate results for free5gc onl
    ```bash
    ./stop_and_clear.sh
    ```
+
+## Tips on Debugging
+
+Try to run ```docker prune system``` every now and then to free storage space.
